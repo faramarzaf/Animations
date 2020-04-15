@@ -1,7 +1,5 @@
 package com.faramarz.tictacdev.animatios.sample3;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
@@ -10,11 +8,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.faramarz.tictacdev.animatios.R;
 
 import java.util.Random;
 
-public class HitActivity extends AppCompatActivity implements View.OnClickListener {
+public class HitActivity extends AppCompatActivity  {
     private ObjectAnimator animation1;
     private ObjectAnimator animation2;
     private Button button;
@@ -28,8 +28,6 @@ public class HitActivity extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hit);
         button = findViewById(R.id.buttonHit);
-        button.setOnClickListener(this);
-
 
         width = getWindowManager().getDefaultDisplay().getWidth();
         height = getWindowManager().getDefaultDisplay().getHeight();
@@ -43,11 +41,9 @@ public class HitActivity extends AppCompatActivity implements View.OnClickListen
             public void onAnimationEnd(Animator animation) {
                 int nextX = randon.nextInt(width);
                 int nextY = randon.nextInt(height);
-                animation1 = ObjectAnimator.ofFloat(button, "x", button.getX(),
-                        nextX);
+                animation1 = ObjectAnimator.ofFloat(button, "x", button.getX(), nextX);
                 animation1.setDuration(1400);
-                animation2 = ObjectAnimator.ofFloat(button, "y", button.getY(),
-                        nextY);
+                animation2 = ObjectAnimator.ofFloat(button, "y", button.getY(), nextY);
                 animation2.setDuration(1400);
                 set.playTogether(animation1, animation2);
                 set.start();
@@ -55,11 +51,7 @@ public class HitActivity extends AppCompatActivity implements View.OnClickListen
         });
     }
 
-    public void onClick(View view) {
-        String string = button.getText().toString();
-        int hitTarget = Integer.valueOf(string) + 1;
-        button.setText(String.valueOf(hitTarget));
-    }
+
 
     private AnimatorSet createAnimation() {
         int nextX = randon.nextInt(width);
@@ -73,6 +65,5 @@ public class HitActivity extends AppCompatActivity implements View.OnClickListen
         set.playTogether(animation1, animation2);
         return set;
     }
-
 
 }

@@ -1,7 +1,5 @@
 package com.faramarz.tictacdev.animatios.sample3;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
@@ -13,7 +11,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.faramarz.tictacdev.animatios.MainActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.faramarz.tictacdev.animatios.R;
 
 public class Animation3Activity extends AppCompatActivity {
@@ -22,14 +21,12 @@ public class Animation3Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animation3);
-
-
     }
 
 
     public void startAnimation(View view) {
         float dest = 0;
-        ImageView aniView =   findViewById(R.id.imageView1);
+        ImageView aniView = findViewById(R.id.imageView1);
         switch (view.getId()) {
 
             case R.id.Button01:
@@ -52,7 +49,7 @@ public class Animation3Activity extends AppCompatActivity {
                 // shows how to define a animation via code
                 // also use an Interpolator (BounceInterpolator)
                 Paint paint = new Paint();
-                TextView aniTextView =  findViewById(R.id.textView1);
+                TextView aniTextView = findViewById(R.id.textView1);
                 float measureTextCenter = paint.measureText(aniTextView.getText().toString());
                 dest = 0 - measureTextCenter;
                 if (aniTextView.getX() < 0) {
@@ -108,7 +105,6 @@ public class Animation3Activity extends AppCompatActivity {
         startActivity(intent);
         return true;
     }
-
 
 
 }

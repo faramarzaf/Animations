@@ -1,13 +1,13 @@
 package com.faramarz.tictacdev.animatios;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class Animation2Activity extends AppCompatActivity implements View.OnClickListener {
@@ -20,12 +20,12 @@ public class Animation2Activity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animation2);
-        bind();
+        initView();
+        initListeners();
         loadAnimations();
-
     }
 
-    private void bind() {
+    private void initView() {
         txtMessage = findViewById(R.id.text);
         btnFadeIn = findViewById(R.id.btnFadeIn);
         btnBounce = findViewById(R.id.btnBounce);
@@ -33,6 +33,9 @@ public class Animation2Activity extends AppCompatActivity implements View.OnClic
         btnZoomOut = findViewById(R.id.btnZoomOut);
         btnSequential = findViewById(R.id.btnSequential);
         btnTogether = findViewById(R.id.btnTogether);
+    }
+
+    private void initListeners() {
         btnFadeIn.setOnClickListener(this);
         btnBounce.setOnClickListener(this);
         btnZoomIn.setOnClickListener(this);
@@ -85,6 +88,5 @@ public class Animation2Activity extends AppCompatActivity implements View.OnClic
         together = AnimationUtils.loadAnimation(this, R.anim.together);
         sequential = AnimationUtils.loadAnimation(this, R.anim.sequential);
     }
-
 
 }
